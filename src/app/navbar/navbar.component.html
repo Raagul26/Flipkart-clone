@@ -1,4 +1,4 @@
-<nav class="flex fixed h-14 w-full bg-blue-600 shadow-sm shadow-gray-600 z-50">
+<nav class="flex items-center fixed h-14 w-full bg-blue-600 shadow-sm shadow-gray-600 z-40">
 
     <!--Logo-->
     <div class="items-center py-2 pl-10 ml-36 mr-2">
@@ -30,19 +30,86 @@
     </div>
 
     <!--Login-btn-->
-    <div class="flex items-center mr-18" (click)="toggleModal()">
+    <div class="mr-18" (click)="toggleModal()" (mouseenter)="onhover()" (mouseleave)="onleave()">
         <div
             class="text-blue-600 text-base font-semibold bg-white px-10 py-0.5 border-2 border-white hover:cursor-pointer">
-            Login</div>
+            Login
+        </div>
+        <div class="hidden fixed  overflow-x-hidden overflow-y-auto z-50 outline-none focus:outline-none justify-center items-center" id="login-dropdown">
+            <div class="mx-auto h-0 w-0 border-white border-b-8 border-l-8 border-r-8 border-r-transparent border-l-transparent">
+            </div>
+            <ul class="bg-white w-56 rounded-sm text-sm font-medium font-sans shadow-sm shadow-gray-300">
+                <li class="border-b-slate-100 border-b-2 px-4 py-2 flex justify-between font-semibold">
+                    <span>New customer?</span>
+                    <a class="text-blue-600">Sign Up</a>
+                </li>
+                <li class="border-b-slate-100 border-b-2 px-4 py-3 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-blue-500" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                      </svg>
+                      <span class="pl-3">My Profile</span> 
+                </li>
+                <li class="border-b-slate-100 border-b-2 px-4 py-3">Flipkart Plus Zone</li>
+                <li class="border-b-slate-100 border-b-2 px-4 py-3">Orders</li>
+                <li class="border-b-slate-100 border-b-2 px-4 py-3 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-blue-500" viewBox="0 0 20 20" >
+                        <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="pl-3">Wishlist</span>
+                </li>
+                <li class="border-b-slate-100 border-b-2 px-4 py-3 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-blue-500" viewBox="0 0 20 20" >
+                        <path d="M2 6a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 100 4v2a2 2 0 01-2 2H4a2 2 0 01-2-2v-2a2 2 0 100-4V6z" />
+                      </svg>
+                    <span class="pl-3">Rewards</span>
+                </li>
+                <li class="border-b-slate-100 border-b-2 px-4 py-3">Gift Cards</li>
+            </ul>
+        </div>
     </div>
 
+
+
     <!--More-->
-    <div class="group flex items-center hover:cursor-pointer ml-8 mr-18">
+    <div class="group flex items-center hover:cursor-pointer ml-8 mr-18" (mouseenter)="openmore()" (mouseleave)="closemore()">
         <a href="#" class="text-white font-bold mr-2">More</a>
         <svg class="fill-white mt-1 h-2 w-2 transform -rotate-90 group-hover:rotate-90 transition duration-150 ease-in-out"
             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 27">
             <path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z" />
         </svg>
+        <div class="hidden top-10 fixed overflow-x-hidden overflow-y-auto z-50 outline-none focus:outline-none justify-center items-center" id="more-dropdown">
+            <div class="mx-auto h-0 w-0 border-white border-b-8 border-l-8 border-r-8 border-r-transparent border-l-transparent">
+            </div>
+            <ul class="bg-white w-56 text-sm font-sans font-medium rounded-sm shadow-sm shadow-gray-300">
+                <li class="border-b-slate-100 border-b-2 px-4 py-2 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-blue-500" viewBox="0 0 16 16">
+                        <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+                    </svg>
+                    <span class="pl-3">Notification Preferences</span>
+                </li>
+                <li class="border-b-slate-100 border-b-2 px-4 py-2 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-blue-500" viewBox="0 0 20 20" >
+                        <path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd" />
+                        <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
+                      </svg>
+                    <span class="pl-3">Sell on Flipkart</span>
+                </li>
+                <li class="border-b-slate-100 border-b-2 px-4 py-2">24x7 Customer Care</li>
+                <li class="border-b-slate-100 border-b-2 px-4 py-2 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-blue-500"  viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                      </svg>
+                    <span class="pl-3">Advertise</span>
+                </li>
+                <li class="border-b-slate-100 border-b-2 px-4 py-2 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-blue-500" viewBox="0 0 20 20" >
+                        <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="pl-3">Download App</span>    
+                </li>
+            </ul>
+        </div>
     </div>
 
     <!--Cart-->
@@ -71,3 +138,5 @@
         </button>
     </div>
 </div>
+
+
